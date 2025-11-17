@@ -105,38 +105,31 @@ open -a "Family Homepage"
 
 ## 📁 Setting Up Notes Sync
 
-To sync messages with family members, you need to set up a shared Git repository:
+**IMPORTANT:** This family uses a private repository for syncing messages:
 
-### Create a Private Repository for Notes
+**Notes Repository:** `git@github.com:miguelemosreverte/family-homepage-notes.git`
 
-1. Create a new **private** repository on GitHub (e.g., `family-notes`)
-2. On your computer, navigate to the notes directory:
+### Setup Instructions
+
+After installing the app, configure the notes sync:
+
+1. Navigate to the notes directory:
    ```bash
-   cd ~/Desktop/family-homepage/notes
+   cd ~/Desktop/FamilyHomepage/notes
    ```
-3. Add the remote and push:
-   ```bash
-   git remote add origin git@github.com:YOUR_USERNAME/family-notes.git
-   git push -u origin main
-   ```
-4. Share the repository with family members (make sure it's private!)
 
-### For Other Family Members
-
-Each family member should:
-1. Install the app using the setup script
-2. Configure their notes folder to sync with the same Git repository:
+2. Add the remote repository and pull existing messages:
    ```bash
-   cd ~/Desktop/family-homepage/notes
-   git remote add origin git@github.com:YOUR_USERNAME/family-notes.git
+   git remote add origin git@github.com:miguelemosreverte/family-homepage-notes.git
    git pull origin main
    ```
 
-The app will automatically:
-- Pull new messages every 60 seconds
-- Bounce the dock icon when new messages arrive
-- Show a notification badge
-- Bring the window to front when messages are received
+3. The app will now automatically:
+   - Pull new messages every 60 seconds
+   - Bounce the dock icon when new messages arrive
+   - Push your messages when you send them
+
+**Note:** Make sure you have SSH access to the repository. If you get a permission error, ask the repository owner to add you as a collaborator.
 
 ## 🛠️ Development
 
