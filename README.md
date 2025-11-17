@@ -109,9 +109,18 @@ open -a "Family Homepage"
 
 **Notes Repository:** `git@github.com:miguelemosreverte/family-homepage-notes.git`
 
+### Prerequisites for Sync
+
+**You MUST have Git LFS installed** before syncing (for audio, video, and images):
+
+```bash
+brew install git-lfs
+git lfs install
+```
+
 ### Setup Instructions
 
-After installing the app, configure the notes sync:
+After installing the app and Git LFS, configure the notes sync:
 
 1. Navigate to the notes directory:
    ```bash
@@ -130,6 +139,13 @@ After installing the app, configure the notes sync:
    - Push your messages when you send them
 
 **Note:** Make sure you have SSH access to the repository. If you get a permission error, ask the repository owner to add you as a collaborator.
+
+### What's Already Configured
+
+The notes repository already has Git LFS configured to track:
+- ✅ Audio files (*.webm, *.mp3)
+- ✅ Video files (*.mp4)
+- ✅ Images (*.jpg, *.jpeg, *.png, *.gif)
 
 ## 🛠️ Development
 
