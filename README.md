@@ -53,7 +53,18 @@ cd family-homepage
 npm install
 ```
 
-### Step 3: Generate Icon
+### Step 3: Configure Your Username
+
+**IMPORTANT:** To prevent Git conflicts when syncing with family members, each person must set their own username:
+
+```bash
+cp .env.example .env
+# Edit .env and change USERNAME to your name (e.g., miguel, anastasia)
+```
+
+This ensures all your messages are prefixed with your username, preventing conflicts when multiple family members send messages simultaneously.
+
+### Step 4: Generate Icon
 
 ```bash
 node generate-icon.js
@@ -73,20 +84,20 @@ iconutil -c icns icon.iconset -o icon.icns
 rm -rf icon.iconset
 ```
 
-### Step 4: Build the App
+### Step 5: Build the App
 
 ```bash
 npm run dist
 ```
 
-### Step 5: Install to Applications
+### Step 6: Install to Applications
 
 ```bash
 cp -R "dist/mac-arm64/Family Homepage.app" /Applications/
 xattr -cr "/Applications/Family Homepage.app"
 ```
 
-### Step 6: Launch the App
+### Step 7: Launch the App
 
 ```bash
 open -a "Family Homepage"

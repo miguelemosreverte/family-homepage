@@ -5,8 +5,12 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 import * as os from 'os';
 import AutoLaunch from 'auto-launch';
+import * as dotenv from 'dotenv';
 
 const execAsync = promisify(exec);
+
+// Load environment variables from .env
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 // Configure auto-launch
 const autoLauncher = new AutoLaunch({
@@ -20,7 +24,8 @@ autoLauncher.enable().catch((err: any) => {
 });
 
 const notesDir = path.join(app.getPath('home'), 'Desktop', 'FamilyHomepage', 'notes');
-const deviceName = os.hostname().replace(/[^a-zA-Z0-9]/g, '-'); // Unique device identifier
+// Use USERNAME from .env, fallback to hostname if not set
+const username = (process.env.USERNAME || os.hostname()).toLowerCase().replace(/[^a-z0-9]/g, '');
 
 let mainWindow: BrowserWindow | null = null;
 let lastCommitHash = '';
@@ -146,9 +151,9 @@ ipcMain.handle('load-notes', async () => {
     }
 });
 
-// Get device name for renderer
+// Get username for renderer (used for file prefixes)
 ipcMain.handle('get-device-name', async () => {
-    return deviceName;
+    return username;
 });
 
 // Git polling - check for new commits every minute

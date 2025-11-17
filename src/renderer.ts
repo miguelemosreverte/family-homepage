@@ -220,7 +220,7 @@ async function sendTextMessage() {
 
     try {
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const filename = `note-${timestamp}.md`;
+        const filename = `${deviceName}-note-${timestamp}.md`;
 
         const result = await ipcRenderer.invoke('save-note', filename, text);
 
