@@ -1,0 +1,42 @@
+{
+  "name": "familyhomepage",
+  "version": "1.0.0",
+  "description": "Family Homepage - Private family social network",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder"
+  },
+  "keywords": [],
+  "author": "Miguel & Anastasia",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/auto-launch": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "electron": "^39.2.1",
+    "electron-builder": "^26.0.12",
+    "electron-icon-builder": "^2.0.1",
+    "typescript": "^5.9.3"
+  },
+  "build": {
+    "appId": "com.family.homepage",
+    "productName": "Family Homepage",
+    "mac": {
+      "category": "public.app-category.social-networking",
+      "target": "dmg",
+      "icon": "icon.icns"
+    },
+    "files": [
+      "dist/**/*",
+      "index.html",
+      "styles.css",
+      "icon.icns",
+      "node_modules/**/*"
+    ]
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6",
+    "canvas": "^3.2.0"
+  }
+}

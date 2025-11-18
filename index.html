@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Family Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <h1>❤️ Family Homepage</h1>
+            <p class="subtitle">With love from Miguel and Anastasia</p>
+        </div>
+
+        <div id="messagesContainer" class="messages-container">
+            <!-- Messages loaded here -->
+        </div>
+
+        <video id="videoPreview" class="video-preview" style="display: none;"></video>
+
+        <div class="input-bar">
+            <button id="voiceBtn" class="media-btn">
+                🎤 Voice
+            </button>
+
+            <button id="videoBtn" class="media-btn">
+                📹 Video
+            </button>
+
+            <button id="imageBtn" class="media-btn">
+                📷 Image
+            </button>
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+
+            <div class="text-input-container">
+                <textarea
+                    id="messageInput"
+                    class="message-input"
+                    placeholder="Type your message, thoughts, diary entry..."
+                    rows="1"></textarea>
+            </div>
+
+            <button id="sendBtn" class="send-btn">
+                ➤ Send
+            </button>
+        </div>
+    </div>
+
+    <script src="./dist/renderer.js"></script>
+</body>
+</html>
